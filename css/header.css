@@ -1,0 +1,234 @@
+@import url(main.css);
+
+
+/*TOP BAR  */
+.topBar,
+.topBar__navBar-wrapper,
+.navBar,
+.navBar__icon {
+    display: flex;
+}
+.topBar {
+    align-items: center;
+}
+
+.topBar__logo,
+.topBar__icon {
+    flex: initial;
+    /* width: 200px; */
+}
+.topBar__navBar-wrapper {
+    flex: 8;
+}
+
+    /* TOP BAR LOGO */
+.topBar__logo {
+    font-family: handwriting;
+    font-weight: bold;
+    min-width: 190px;
+    text-align: center;
+    border-radius: 20px;
+    border: 2px solid black;
+}
+    .topBar__logo a {
+        
+        display: block;
+        padding: 5px 0;
+        font-size: 1.5rem;
+        color: black;
+        transition: color 0.3s;
+    }
+    .topBar__logo i {
+    }
+
+    /* NAVBAR WRAPPER */
+
+.topBar__navBar-wrapper {
+    justify-content: space-between;
+    padding-left: 50px;
+    font-size: 1rem;
+}
+        /* NAV BAR */
+    .topBar__navBar-wrapper .navBar {
+    }
+    .navBar > li {
+        margin-right: 30px;
+    }
+    
+    .navBar > li > a {
+        color: black;
+        font-size: 1em;
+        position: relative;
+    }
+    .navBar > li > a::after{
+        content: "";
+        border-bottom: 3px solid var(--orange);
+        position: absolute;
+        top: 0;left: 0;right: 0;bottom: -10px;
+        margin: auto;
+        width: 80%;
+        transform: scaleX(0);
+        transition: transform 0.4s;
+    }
+    .navBar > li > a > i {
+        font-size: 0.8em;
+    }
+    .navBar > li > a.active {
+        color: var(--orange);
+    }
+    .navBar > li > a.active::after{
+        transform: scaleX(1);
+    }
+    
+    /* HOVER NAV BAR*/
+    .navBar > li:hover > a {
+        color: var(--orange);
+    }
+    .navBar > li:hover > a::after{
+        transform: scaleX(1);
+    }
+
+
+
+/* TOP BAR ICON  */
+.topBar__icon {
+
+}   
+.topBar__icon a {
+    display: inline-block;
+    color: rgb(37, 34, 34);
+    cursor: pointer;
+    transition: color 0.2s;
+}
+.topBar__icon a:first-child {
+    margin-right: 40px;
+}
+.topBar__icon a {
+    display: inline-block;
+    color: rgb(37, 34, 34);
+    cursor: pointer;
+    transition: color 0.2s;
+}
+.topBar__icon i {
+    font-size: 1.5rem;
+}
+/* HOVER */
+.topBar__icon a:hover {
+    color: var(--orange);
+}
+
+
+    /* HIDDEN for MOBILE */
+    .navBar > li:nth-child(5),
+    .navBar > li:nth-child(6),
+    .navBar > li:nth-child(7),
+    .topBar__icon i.hidden {
+        display: none;
+    }
+
+
+@media only screen and (max-width: 900px) {
+    /* TOPBAR */
+    .topBar {
+        justify-content: space-between;
+    }
+    /* TOPBAR LOGO */
+    .topBar__logo {
+        min-width: 150px;
+    }
+    .topBar__logo a {
+        font-size: 1em;
+    }
+    /* TOP BAR ICON */
+    .topBar__icon a {
+        display: none;
+    }
+    .topBar__icon i.hidden {
+        display: block;
+        cursor: pointer;
+        font-size: 2rem;
+    }
+
+    /* TOP BAR NAV BAR */
+    .navBar {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(255, 255, 255, 0.9);
+        flex-direction: column;
+        align-items: center;
+        opacity: 0;visibility: hidden;
+        z-index: 9999;
+    }
+    ul.active {
+        animation: popup 0.4s ease-in-out;
+        opacity: 1;visibility: visible;
+    }
+    ul.non-active {
+        animation: popoff 0.4s ease-in-out;
+    }
+    @keyframes popup {
+        from {
+            opacity: 0;visibility: hidden;
+            transform: translateX(200%);
+        }
+        to {
+            opacity: 1;visibility: visible;
+            transform: translateX(0);
+        }
+    }
+    @keyframes popoff {
+        from {
+            opacity: 1;visibility: visible;
+            transform: translateX(0);
+        }
+        to {
+            opacity: 0;visibility: hidden;
+            transform: translateX(200%);
+        }
+    }
+    /* NAV BAR LIST */
+    .navBar > li {
+        width: 100%;
+        margin-right: 0;
+        text-align: center;
+        transition: background-color 0.4s;
+    }
+    .navBar > li > a {
+        font-family: roboto-light;
+        display: block;
+        width: 100%;
+        padding: 1vh 0;
+        font-size: 2.1rem;
+        transition: letter-spacing 0.3s;
+    }
+    .navBar > li > a::after {
+        content: none;
+    }
+    .navBar > li > a > i {
+        display: inline-block;
+        font-size: 1.5rem;
+        margin-left: 0.5vw;
+
+    }
+    .navBar > li:nth-child(5),
+    .navBar > li:nth-child(6),
+    .navBar > li:nth-child(7) {
+        display: block;
+    }
+    .navBar > li:first-child {
+        margin-top: 20vh;
+    }
+        /* HOVER */
+        .navBar > li:hover {
+            background-color: rgba(243, 239, 239, 0.8);
+        }
+        .navBar > li:hover > a,
+        .navBar > li > a.active {
+            color: var(--orange);
+            letter-spacing: 5px;
+            background-color: rgba(243, 239, 239, 0.8);
+        }
+}

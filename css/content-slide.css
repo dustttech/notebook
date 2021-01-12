@@ -1,0 +1,161 @@
+@import url(main.css);
+
+
+/* IMG SLIDE RIGHT */
+.main-content .item-img {
+    width: 100%;
+    flex: 1.2;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    overflow: hidden;
+    /* background-color: blueviolet; */
+}
+    /* BUTTON SLIDE */
+    .item-img .button {
+        width: 90%;
+        display: flex;
+        justify-content: space-between;
+        position: absolute;
+        top: 50%;
+        z-index: 10;
+    }
+        .button .left,
+        .button .right {
+            cursor: pointer;
+        }
+        .button i {
+            display: block;
+            color: rgb(150, 149, 149);
+            font-size: 2rem;
+            border-radius: 50%;
+            transition: 0.3s ease 0s;
+        }
+        .button i:hover {
+            color: black;
+        }
+
+    .item-img__big-wrapper  {
+        width: 500px;
+        height: 50vh;
+        position: relative;
+        /* background-image: url(../img/dot.png); */
+    }
+
+
+
+
+    .item-img__big-wrapper .big-list {
+        width: 100%;
+        height: 100%;
+        perspective: 200px;
+    }
+        .big-list > li {
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            z-index: 9;
+            margin: auto;
+            opacity: 0;
+        }
+        .big-list > li > img {
+            width: 100%;
+            height: 100%;
+        }
+        .big-list > li.active {
+            opacity: 1;
+        }
+        .big-list > li.hide {
+            animation: hide .5s forwards ;
+        }
+        .big-list > li.show {
+            animation: show .5s forwards;
+        }
+        .big-list > li.hide1 {
+            animation: hide1 .5s forwards ;
+        }
+        .big-list > li.show1 {
+            animation: show1 .5s forwards;
+            /* animation-delay: .3s; */
+        }
+        @-webkit-keyframes hide {
+            0% { transform: translateX(0px); opacity: 1;}
+            100% { transform: translateX(-200%); opacity: 0;} 
+        }
+        @-webkit-keyframes show {
+            from { transform: translateX(100%); opacity: 1;}
+            to { transform: translateX(0%); opacity: 1;}
+        }
+        @-webkit-keyframes hide1 {
+            0% { transform: translateX(0px); opacity: 1;}
+            100% { transform: translateX(200%); opacity: 0;} 
+        }
+        @-webkit-keyframes show1 {
+            from { transform: translateX(-100%); opacity: 1;}
+            to { transform: translateX(0%); opacity: 1;}
+        }
+        .big-list > li > img {
+            width: 100%;
+        }
+    
+
+    .item-img__small-wrapper {
+        
+    }
+    .item-img__small-wrapper .small-list {
+        width: 150px;
+        display: flex;
+    }
+        .small-list > li {
+            cursor: pointer;
+            width: 33.33%;
+            border-bottom: 2px solid rgb(165, 155, 155);
+        }
+        .small-list > li.active {
+            border-bottom: 3px solid var(--orange);
+        }
+        .small-list > li + li{
+            margin-left: 20px;
+        }
+        .small-list > li > img {
+            width: 100%;
+        }
+
+@media only screen and (max-width: 1100px) {
+    .main-content .item-img {
+        order: 1;
+    }
+    /* BUTTON SLIDE */
+    .item-img .button {
+        top: 50%;
+    }
+    /* BIG SLIDE WRAPPER */
+    .item-img__big-wrapper {
+        width: 50%;
+        height: 50vw;
+    }
+}
+@media only screen and (max-width: 800px) {
+    /* BIG SLIDE WRAPPER */
+    /* .item-img__big-wrapper {
+        width: 90%;
+        height: 80vw;
+    } */
+}
+@media only screen and (max-width: 600px) {
+    /* BUTTON SLIDE */
+    .item-img .button {
+        top: 50%;
+    }
+    /* BIG SLIDE WRAPPER */
+    .item-img__big-wrapper {
+        width: 90%;
+        height: 90vw;
+    }
+        /* BUTTON SLIDE */
+.item-img .button i {
+        color: rgba(150, 149, 149,0.5);
+    }
+}
