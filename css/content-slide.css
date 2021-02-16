@@ -24,16 +24,31 @@
     }
         .button .left,
         .button .right {
-            cursor: pointer;
-        }
-        .button i {
             display: block;
-            color: rgb(150, 149, 149);
+            cursor: pointer;
+            text-align: center;
+        }
+        .button .left::after,
+        .button .right::after {
+            display: block;
+            font-family: FontAwesome;
+            line-height: 40px;
+            width: 40px;
+            height: 40px;
+            color: white;
+            background-color: rgb(150, 149, 149);
             font-size: 2rem;
             border-radius: 50%;
             transition: 0.3s ease 0s;
         }
-        .button i:hover {
+        .left::after {
+            content: "\f053";
+        }
+        .right::after {
+            content: "\f054";
+        }
+        .button .left:hover::after,
+        .button .right:hover::after {
             color: black;
         }
 
